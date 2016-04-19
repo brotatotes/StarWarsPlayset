@@ -42,7 +42,7 @@ object(container_of_bacta).
 location(heart_of_the_death_star).
 location(middle_of_an_asteroid_field).
 location(stranded_on_dagobah).
-location(prison_in_Jabba's_Palace).
+location(prison_in_Jabbas_Palace).
 location(busy_street_in_cloud_city).
 location(mos_eisley_cantina).
 location(command_bridge_of_rebel_space_cruiser).
