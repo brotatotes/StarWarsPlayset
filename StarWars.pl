@@ -5,56 +5,84 @@
 %% LuoLei Zhao
 
 
-conflicting_roles([politician, strategist, staffer, opposition_researcher, intern,
-		   lobbyist, journalist, billionaire, foreign_dictator, televangelist, activist,
-		   special_prosecutor, supreme_court_justice, lawyer,
-		   drug_dealer, madam, hired_burgler, hacker, honey_trap, 'PR strategist',
-		   militia_member ]).
+%% conflicting_roles([politician, strategist, staffer, opposition_researcher, intern,
+%% 		   lobbyist, journalist, billionaire, foreign_dictator, televangelist, activist,
+%% 		   special_prosecutor, supreme_court_justice, lawyer,
+%% 		   drug_dealer, madam, hired_burgler, hacker, honey_trap, 'PR strategist',
+%% 		   militia_member ]).
 		   
 roles_relation(secret_parent/unknowing_child).
+
 roles_relation(bounty_hunter/target).
+conflicting_roles(bounty_hunter,sith_lord).
+
 roles_relation(master/apprentice).
-	implies(role(X,master),role(X,force_sensitive))
-	implies(role(X,apprentice,role(X,force_sensitive))
+implies(role(X,master),role(X,force_sensitive)).
+implies(role(X,apprentice),role(X,force_sensitive)).
+contradiction(needs(X,realize_potential_as_jedi),role(X,master)).
+
 roles_relation(sith_lord/evil_minion).
-	implies(role(X, sith_lord),
-		role(X, imperial)).
-	implies(role(X, evil_minion),
-		role(X, imperial)).
-	implies(role(X,sith_lord),
-		role(X,force_sensitive))
+implies(role(X, sith_lord),
+	role(X, imperial)).
+implies(role(X, evil_minion),
+	role(X, imperial)).
+implies(role(X,sith_lord),
+	role(X,force_sensitive)).
+conflicting_roles(sith_lord,rebel).
+conflicting_roles(evil_minion,rebel).
+
 roles_relation(rebel_commander/rebel_soldier).
-	implies(role(X, rebel_soldier),
-		role(X, rebel)).
-	implies(role(X, rebel_commander),
-		role(X, rebel)).
-	roles_relation(droid/owner).
+implies(role(X, rebel_soldier),
+	role(X, rebel)).
+implies(role(X, rebel_commander),
+	role(X, rebel)).
+
+roles_relation(droid/owner).
+conflicting_roles(droid,secret_parent).
+conflicting_roles(droid,master).
+conflicting_roles(droid,apprentice).
+conflicting_roles(droid,sith_lord).
+conflicting_roles(droid,stormtroopers_in_same_unit).
+conflicting_roles(droid,alien_crime_lord).
+
 symmetric(stormtroopers_in_same_unit).
-	implies(relationship(X, stormtroopers_in_same_unit, _),
-		role(X, imperial)).
-	implies(relationship(_, stormtroopers_in_same_unit, Y),
-		role(Y, imperial)).
+implies(relationship(X, stormtroopers_in_same_unit, _),
+	role(X, imperial)).
+implies(relationship(_, stormtroopers_in_same_unit, Y),
+	role(Y, imperial)).
+conflicting_roles(stormtroopers_in_same_unit,rebel).
 		
 roles_relation(force_sensitive/skeptic_of_the_force).
 conflicting_roles(force_sensitive,skeptic_of_the_force).
+implies(role(X,sith_lord),role(X,force_sensitive)).
+implies(role(X,master),role(X,force_sensitive)).
+implies(role(X,apprentice),role(X,force_sensitive)).
 	
 roles_relation(imperial/rebel).
-	conflicting_roles(imperial, rebel).
+conflicting_roles(imperial, rebel).
+conflicting_roles(imperial,alien_crime_lord).
+conflicting_roles(rebel,alien_crime_lord).
 
 roles_relation(alien_crime_lord/bounty_hunter).
 roles_relation(clumsy_galaxy_food_deliverer/customer).
+conflicting_roles(sith_lord,clumsy_galaxy_food_deliverer).
+conflicting_roles(master,clumsy_galaxy_food_deliverer).
+conflicting_roles(alien_crime_lord,clumsy_galaxy_food_deliverer).
+conflicting_roles(bounty_hunter,clumsy_galaxy_food_deliverer).
+conflicting_roles(rebel_commander,clumsy_galaxy_food_deliverer).
 
 %
 % Needs
 %
-need(get_revenge_on(X)) :-
-	rival(X).
+need(get_revenge_on(X)) :- rival(X).
 rival(enemy_commander).
 rival(sith_lord).
 rival(bounty_hunter).
 drug(alien_crime_lord).
 
 need(bring_balance_to_the_force).
+contradiction(needs(X,bring_balance_to_the_force),needs(X,crush_the_rebellion)).
+
 need(crush_the_rebellion).
 role_need(imperial, crush_the_rebellion).
 role_need(apprentice, realize_potential_as_jedi).
@@ -62,12 +90,11 @@ role_need(rebel, deliver_secret_message_to_rebels).
 role_need(target, escape_from_old_debts_to_crime_lord).
 
 need(destroy_death_star).
-contradiction(needs(C, destroy_death_star),
-	      role(C, imperial)).
+contradiction(needs(C, destroy_death_star),role(C, imperial)).
 role_need(bounty_hunter,hunt_for_bounty).
+
 need(make_quick_and_dirty_fortune).
-contradiction(needs(C, destroy_death_star),
-	      role(C, sith_lord)).
+contradiction(needs(C, destroy_death_star),role(C, sith_lord)).
 role_need(sith_lord,convert_everyone_to_dark_side).
 
 
@@ -82,7 +109,7 @@ object(broken_r2_series_droid).
 object(locked_chest_only_the_force_can_open).
 object(han_solo_frozen_in_carbonite).
 object(controls_to_a_planet_destroying_laser).
-	implies( has(X,controls_to_a_planet_destroying_laser), at(X,inside_the_death_star))
+implies(has(X,controls_to_a_planet_destroying_laser), at(X,inside_the_death_star)).
 object(bag_of_live_midi-chlorians).
 object(container_of_bacta).
 
