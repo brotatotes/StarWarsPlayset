@@ -3,6 +3,7 @@
 %% Star Wars Theme
 %% Eric Hao
 %% LuoLei Zhao
+%% Shuai He
 
 %
 % Roles
@@ -34,7 +35,7 @@ implies(role(X, rebel_soldier),
 implies(role(X, rebel_commander),
 	role(X, rebel)).
 left_unique(rebel_commander/rebel_soldier).
-conflicting_roles([rebel_commander,rebel_soldier,stormtroopers_in_same_unit,sith_lord,master]).
+conflicting_roles([rebel_commander,rebel_soldier,stormtroopers_in_same_unit,sith_lord]).
 
 roles_relation(droid/owner).
 conflicting_roles(droid,secret_parent).
@@ -81,10 +82,11 @@ conflicting_roles(sith_lord,bartender).
 conflicting_roles(droid,alcoholic).
 implies(role(X,alcoholic),at(X,inside_theed_hangar)).
 
-roles_relation(secret_admirer/admired).
+roles_relation(secret_admirer/heart_broken_loner).
 
-roles_relation(brother/sister).
-conflicting_roles(brother,sister).
+roles_relation(rich_sibling/homeless_sibling).
+conflicting_roles([rich_sibling,homeless_sibling,droid]).
+
 
 roles_relation(galactic_senator/imperial_senator).
 conflicting_roles(imperial_senator,rebel).
