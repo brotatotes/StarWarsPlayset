@@ -53,13 +53,13 @@ implies(relationship(_, stormtroopers_in_same_unit, Y),
 	role(Y, imperial)).
 conflicting_roles(stormtroopers_in_same_unit,rebel).
 conflicting_roles(stormtroopers_in_same_unit,sith_lord).
-		
+
 roles_relation(force_sensitive/skeptic_of_the_force).
 conflicting_roles(force_sensitive,skeptic_of_the_force).
 implies(role(X,sith_lord),role(X,force_sensitive)).
 implies(role(X,master),role(X,force_sensitive)).
 implies(role(X,apprentice),role(X,force_sensitive)).
-	
+
 roles_relation(imperial/rebel).
 conflicting_roles(imperial, rebel).
 conflicting_roles(imperial,alien_crime_lord).
@@ -74,6 +74,26 @@ conflicting_roles(master,clumsy_galaxy_food_deliverer).
 conflicting_roles(alien_crime_lord,clumsy_galaxy_food_deliverer).
 conflicting_roles(bounty_hunter,clumsy_galaxy_food_deliverer).
 conflicting_roles(rebel_commander,clumsy_galaxy_food_deliverer).
+
+roles_relation(bartender/alcoholic).
+conflicting_roles(master,bartender).
+conflicting_roles(sith_lord,bartender).
+conflicting_roles(droid,alcoholic).
+implies(role(X,alcoholic),at(X,inside_theed_hangar)).
+
+roles_relation(secret_admirer/admired).
+
+roles_relation(brother/sister).
+conflicting_roles(brother,sister).
+
+roles_relation(galactic_senator/imperial_senator).
+conflicting_roles(imperial_senator,rebel).
+conflicting_roles(imperial_senator,rebel_commander).
+conflicting_roles(imperial_senator,rebel_soldier).
+implies(role(X,imperial_senator),
+	role(X,imperial)).
+
+
 
 %
 % Needs
@@ -107,6 +127,8 @@ contradiction(needs(C, destroy_death_star),role(C, sith_lord)).
 
 role_need(sith_lord,convert_everyone_to_dark_side).
 
+need(to_get_todays_papers).
+
 
 %
 % Objects
@@ -122,6 +144,11 @@ object(controls_to_a_planet_destroying_laser).
 implies(has(X,controls_to_a_planet_destroying_laser), at(X,inside_the_death_star)).
 object(bag_of_live_midi-chlorians).
 object(container_of_bacta).
+object(golden_anklet).
+object(pitcher_of_lum).
+object(basket_of_wookiee_ookiees).
+object(rangefinder).
+object(holojournal).
 
 %
 % Locations
@@ -136,3 +163,8 @@ location(command_bridge_of_rebel_space_cruiser).
 location(secret_factory_on_sullust).
 location(audience_at_pod_race).
 location(pit_of_carkoon_execution_platform).
+location(inside_theed_hangar).
+location(crowd_in_outlander_club).
+location(top_of_great_temple).
+location(yodas_house).
+location(balcony_of_ewok_treehouse).
