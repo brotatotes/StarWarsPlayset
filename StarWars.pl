@@ -85,6 +85,7 @@ conflicting_roles(sith_lord,bartender).
 conflicting_roles(droid,alcoholic).
 implies(role(X,alcoholic),at(X,inside_theed_hangar)).
 conflicting_roles([bartender,former_galactic_senator,imperial_senator]).
+conflicting_roles(bartender,alien_crime_lord).
 
 roles_relation(secret_admirer/heart_broken_loner).
 
