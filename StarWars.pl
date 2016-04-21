@@ -5,6 +5,17 @@
 %% LuoLei Zhao, lzg431
 %% Shuai He, shb786
 
+% Title: Star Wars: High stakes in the Galactic Civil War
+
+% Synopsis: (Between Star Wars Episode III and IV)
+% The Galactic civil war that has touched people far and wide, 
+% even lowlifes, crime-lords, and smugglers are getting finding themselves pulled in.
+% But now is a most critical hour, Rebel spaceships have just stolen the secret plans to the Empire's ultimate weapon,
+% the DEATH STAR, an armored space station with enough power to destroy an entire planet.
+% Will the Rebels resist the Empire, and their dark sith lord? Will the jedi ever rise again?
+% It is all up to you...
+%
+
 %
 % Roles
 % 
