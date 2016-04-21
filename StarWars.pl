@@ -42,6 +42,7 @@ conflicting_roles([rebel_commander,rebel_soldier,stormtroopers_in_same_unit,sith
 conflicting_roles(rebel_commander,apprentice).
 
 roles_relation(droid/owner).
+conflicting_roles(droid,owner).
 conflicting_roles(droid,secret_parent).
 conflicting_roles(droid,master).
 conflicting_roles(droid,apprentice).
@@ -94,6 +95,7 @@ roles_relation(secret_admirer/heart_broken_loner).
 
 roles_relation(rich_sibling/homeless_sibling).
 conflicting_roles([rich_sibling,homeless_sibling,droid]).
+conflicting_roles(rich_sibling,clumsy_galaxy_food_deliverer).
 
 
 roles_relation(former_galactic_senator/imperial_senator).
@@ -126,11 +128,12 @@ contradiction(role(X, rich_sibling),needs(X,escape_from_old_debts_to_crime_lord)
 
 need(destroy_death_star).
 contradiction(needs(C, destroy_death_star),role(C, imperial)).
+contradiction(needs(X, destroy_death_star),role(X,evil_minion)).
+contradiction(needs(C, destroy_death_star),role(C, sith_lord)).
 
 role_need(bounty_hunter,hunt_for_bounty).
 
 need(make_quick_and_dirty_fortune).
-contradiction(needs(C, destroy_death_star),role(C, sith_lord)).
 
 role_need(sith_lord,convert_everyone_to_dark_side).
 
