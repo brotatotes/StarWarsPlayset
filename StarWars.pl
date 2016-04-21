@@ -18,6 +18,7 @@ implies(role(X,master),role(X,force_sensitive)).
 implies(role(X,apprentice),role(X,force_sensitive)).
 contradiction(needs(X,realize_potential_as_jedi),role(X,master)).
 left_unique(master/apprentice).
+conflicting_roles(apprentice,sith_lord).
 
 roles_relation(sith_lord/evil_minion).
 implies(role(X, sith_lord),
@@ -28,6 +29,8 @@ implies(role(X,sith_lord),
 	role(X,force_sensitive)).
 conflicting_roles(sith_lord,rebel).
 conflicting_roles(evil_minion,rebel).
+conflicting_roles(evil_minion,sith_lord).
+right_unique(evil_minion,sith_lord).
 
 roles_relation(rebel_commander/rebel_soldier).
 implies(role(X, rebel_soldier),
@@ -101,11 +104,7 @@ implies(role(X,imperial_senator),
 %
 % Needs
 %
-need(get_revenge_on(X)) :- rival(X).
-rival(enemy_commander).
-rival(sith_lord).
-rival(bounty_hunter).
-drug(alien_crime_lord).
+need(suppress_anger_issues).
 
 need(bring_balance_to_the_force).
 contradiction(needs(X,bring_balance_to_the_force),needs(X,crush_the_rebellion)).
