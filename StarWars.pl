@@ -1,9 +1,9 @@
 %% EECS 395
 %% Assignment 3
 %% Star Wars Theme
-%% Eric Hao
-%% LuoLei Zhao
-%% Shuai He
+%% Eric Hao, ezh825
+%% LuoLei Zhao, lzg431
+%% Shuai He, shb786
 
 %
 % Roles
