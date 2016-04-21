@@ -118,6 +118,7 @@ role_need(apprentice, realize_potential_as_jedi).
 role_need(rebel, deliver_secret_message_to_rebels).
 
 role_need(target, escape_from_old_debts_to_crime_lord).
+contradiction(role(X, rich_sibling),needs(X,escape_from_old_debts_to_crime_lord)).
 
 need(destroy_death_star).
 contradiction(needs(C, destroy_death_star),role(C, imperial)).
@@ -129,8 +130,13 @@ contradiction(needs(C, destroy_death_star),role(C, sith_lord)).
 
 role_need(sith_lord,convert_everyone_to_dark_side).
 
-need(to_get_todays_papers).
+need(to_satisfy_bloodthirst).
 
+need(to_find_love).
+
+role_need(alcoholic,alcohol).
+
+role_need(skeptic_of_the_force,to_find_the_truth).
 
 %
 % Objects
