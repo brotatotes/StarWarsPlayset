@@ -171,7 +171,7 @@ implies(has(X,controls_to_a_planet_destroying_laser), at(X,inside_the_death_star
 object(bag_of_live_midi-chlorians).
 object(container_of_bacta).
 object(golden_anklet).
-object(pitcher_of_lum).
+object(directions_to_rebel_secret_base).
 object(basket_of_wookiee_ookiees).
 object(rangefinder).
 object(holojournal).
