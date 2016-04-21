@@ -39,6 +39,7 @@ implies(role(X, rebel_commander),
 	role(X, rebel)).
 left_unique(rebel_commander/rebel_soldier).
 conflicting_roles([rebel_commander,rebel_soldier,stormtroopers_in_same_unit,sith_lord]).
+conflicting_roles(rebel_commander,apprentice).
 
 roles_relation(droid/owner).
 conflicting_roles(droid,secret_parent).
@@ -48,6 +49,8 @@ conflicting_roles(droid,sith_lord).
 conflicting_roles(droid,stormtroopers_in_same_unit).
 conflicting_roles(droid,alien_crime_lord).
 conflicting_roles(droid,unknowing_child).
+conflicting_roles(droid,rebel_commander).
+conflicting_roles(droid,rebel_soldier).
 right_unique(droid/owner).
 
 symmetric(stormtroopers_in_same_unit).
