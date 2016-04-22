@@ -1,6 +1,4 @@
-# README #
-
-### What is this repository for? ###
+### Star Wars Playset ###
 
 * Spring 2016 Northwestern EECS 395 Assignment 3
 * Eric Hao, Luolei Zhao, Shuai He
